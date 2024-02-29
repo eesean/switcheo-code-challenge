@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Problem2.css">
+    <title>Currency Swap Form</title>
+</head>
+<body>
+    <div id="app" class="container">
+        <h1>Currency Swap</h1>
+        <form @submit.prevent="submitForm">
+            <!-- Token From -->
+            <div class="form-group">
+                <label for="tokenFrom">Token From</label>
+                <input v-model="tokenFrom" type="text" id="tokenFrom" placeholder="Enter token symbol" required>
+            </div>
+    
+            <!-- Token To -->
+            <div class="form-group">
+                <label for="tokenTo">Token To</label>
+                <input v-model="tokenTo" type="text" id="tokenTo" placeholder="Enter token symbol" required>
+            </div>
+    
+            <!-- Amount -->
+            <div class="form-group">
+                <label for="amount">Amount</label>
+                <input v-model="amount" type="number" id="amount" placeholder="Enter amount" required>
+            </div>
+    
+            <!-- Submit Button -->
+            <button type="submit">Swap Now</button>
+        </form>
+    
+        <!-- Display Exchange Rate and Result -->
+        <div v-if="showResult" id="resultContainer">
+            <p>Exchange Rate: 1 {{ tokenFrom }} = {{ exchangeRate }} {{ tokenTo }}</p>
+            <p>Result: {{ amount }} {{ tokenFrom }} = {{ result }} {{ tokenTo }}</p>
+        </div>
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="Problem2.js"></script>
+</body>
+</html>
